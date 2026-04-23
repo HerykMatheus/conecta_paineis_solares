@@ -46,11 +46,17 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
+            height: 40px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-icon {
-            color: #FFC107;
-            font-size: 32px;
+            display: none;
         }
 
         .nav-links {
@@ -73,11 +79,7 @@
         }
 
         .cart-icon {
-            font-size: 24px;
-            cursor: pointer;
-            position: relative;
-            color: white;
-            transition: transform 0.2s;
+            display: none;
         }
 
         .cart-icon:hover {
@@ -85,19 +87,7 @@
         }
 
         .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #FF8C00;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
+            display: none;
         }
 
         .container {
@@ -498,7 +488,6 @@
 
         .offer-benefit-item {
             display: flex;
-            gap: 16px;
             align-items: flex-start;
             background: white;
             padding: 20px;
@@ -597,7 +586,6 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            letter-spacing: 0.5px;
             box-shadow: 0 6px 20px rgba(139, 21, 56, 0.3);
         }
 
@@ -609,71 +597,47 @@
 
         /* ESPECIFICAÇÕES */
         .specs-section {
-            padding: 80px 0;
-            background: white;
+            display: none;
         }
 
         .specs-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-            margin-top: 40px;
+            display: none;
         }
 
         .specs-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 400px;
+            display: none;
         }
 
         .specs-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            display: none;
         }
 
         .specs-content h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #8B1538;
+            display: none;
         }
 
         .specs-list {
-            list-style: none;
+            display: none;
         }
 
         .specs-list li {
-            padding: 16px 0;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
+            display: none;
         }
 
         .specs-list li:last-child {
-            border-bottom: none;
+            display: none;
         }
 
         .specs-list i {
-            color: #FFC107;
-            margin-top: 4px;
-            flex-shrink: 0;
-            font-size: 20px;
+            display: none;
         }
 
         .specs-list strong {
-            color: #8B1538;
-            display: block;
-            margin-bottom: 4px;
-            font-size: 16px;
+            display: none;
         }
 
         .specs-list span {
-            color: #666;
-            font-size: 15px;
+            display: none;
         }
 
         /* AVALIAÇÕES */
@@ -921,7 +885,8 @@
         /* PÁGINAS */
         .cart-page,
         .checkout-page,
-        .success-page {
+        .success-page,
+        .quote-form-page {
             padding: 40px 0;
         }
 
@@ -1100,7 +1065,6 @@
         .checkout-section {
             background: white;
             padding: 24px;
-            border: 1px solid #e5e7eb;
             border-radius: 8px;
             margin-bottom: 24px;
         }
@@ -1108,8 +1072,10 @@
         .section-title-checkout {
             font-size: 16px;
             font-weight: bold;
-            margin-bottom: 16px;
             color: #8B1538;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-row {
@@ -1121,106 +1087,64 @@
         .form-group {
             display: flex;
             flex-direction: column;
+            gap: 8px;
             margin-bottom: 16px;
         }
 
         .form-group label {
             font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 6px;
+            font-weight: 600;
             color: #333;
         }
 
         .form-group input,
-        .form-group select {
-            padding: 10px;
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
+            font-family: inherit;
         }
 
-        .payment-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .payment-method {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border: 2px solid #e5e7eb;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .payment-method:hover {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
             border-color: #8B1538;
-            background: #f8f9fa;
-        }
-
-        .payment-method input[type="radio"] {
-            cursor: pointer;
-        }
-
-        .payment-method-label {
-            flex: 1;
-        }
-
-        .payment-method-title {
-            font-weight: bold;
-            color: #8B1538;
-            margin-bottom: 4px;
-        }
-
-        .payment-method-desc {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .payment-details {
-            display: none;
-            padding: 16px;
-            background: #f8f9fa;
-            border-radius: 4px;
-            margin-bottom: 16px;
-        }
-
-        .payment-details.show {
-            display: block;
+            box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
         }
 
         .success-container {
-            text-align: center;
-            padding: 60px 20px;
             background: white;
+            padding: 60px 40px;
             border-radius: 8px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .success-icon {
             font-size: 80px;
-            color: #8B1538;
+            color: #4CAF50;
             margin-bottom: 24px;
         }
 
         .success-container h2 {
             font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 16px;
             color: #8B1538;
+            margin-bottom: 16px;
         }
 
         .success-container p {
             font-size: 16px;
             color: #666;
             margin-bottom: 32px;
+            line-height: 1.6;
         }
 
         .success-details {
-            background: #f8f9fa;
+            background: #f9f9f9;
             padding: 24px;
             border-radius: 8px;
             margin-bottom: 32px;
@@ -1239,16 +1163,20 @@
             border-bottom: none;
         }
 
+        .success-details-row strong {
+            color: #8B1538;
+        }
+
         .success-buttons {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             justify-content: center;
         }
 
         .btn-continue {
             background-color: #8B1538;
             color: white;
-            padding: 14px 32px;
+            padding: 14px 40px;
             border: none;
             border-radius: 4px;
             font-size: 14px;
@@ -1260,46 +1188,38 @@
             background-color: #A01F47;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-content,
-            .specs-grid,
-            .reviews-grid,
-            .video-grid,
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
             .benefits-grid,
-            .trust-grid,
-            .process-grid,
-            .offer-layout,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 36px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .rating-summary {
-                grid-template-columns: 1fr;
-            }
-
-            .cart-layout,
-            .checkout-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
+            .trust-grid {
                 grid-template-columns: 1fr;
             }
 
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-layout,
+            .checkout-layout,
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1309,17 +1229,12 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="logo" onclick="goToLanding()">
-                <span style="color: #FFC107; font-size: 28px;">∞</span>
-                <span>CONECTA</span>
+                <img src="https://via.placeholder.com/150x40/8B1538/FFFFFF?text=Logo" alt="Logo Conecta">
             </div>
             <div class="nav-links">
                 <a href="#hero" onclick="scrollToSection('hero')">Topo</a>
                 <a href="#gallery" onclick="scrollToSection('gallery')">Galeria</a>
                 <a href="#videos" onclick="scrollToSection('videos')">Vídeos</a>
-                <div class="cart-icon" onclick="goToCart()">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge" id="cart-count">0</span>
-                </div>
             </div>
         </div>
     </nav>
@@ -1330,16 +1245,16 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <div class="hero-badge">
-                            <i class="fas fa-sun"></i> Energia Renovável
+                            <i class="fas fa-sun"></i> ENERGIA LIMPA E RENOVÁVEL
                         </div>
                         <div class="urgency-badge">
-                            ⚡ Promoção Especial
+                            <i class="fas fa-bolt"></i> OFERTA LIMITADA
                         </div>
                         <h1><span>Quanto custa</span> a energia que vem do sol?</h1>
                         <p>Transforme sua residência ou empresa em uma usina de energia limpa e renovável. Reduza sua conta de luz em até 95% com os painéis solares da Conecta.</p>
                         
                         <div class="hero-buttons">
-                            <button class="btn-primary" onclick="addToCartAndGo()">
+                            <button class="btn-primary" onclick="goToQuoteForm()">
                                 <i class="fas fa-calculator"></i> SOLICITAR ORÇAMENTO
                             </button>
                             <button class="btn-secondary" onclick="scrollToSection('process')">
@@ -1355,58 +1270,34 @@
             </div>
         </section>
 
-        <section class="benefits-section" id="benefits">
+        <section class="benefits-section">
             <div class="container">
-                <h2 class="section-title">Por Que Escolher a Conecta?</h2>
-                <p class="section-subtitle">Energia solar com os melhores benefícios do mercado</p>
+                <h2 class="section-title">Por que escolher a Conecta?</h2>
+                <p class="section-subtitle">Benefícios que transformam sua vida</p>
 
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fas fa-infinity"></i>
-                        </div>
-                        <h3>Energia Infinita</h3>
-                        <p>Energia inesgotável e renovável. Aproveite a força do sol para sempre.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-piggy-bank"></i>
-                        </div>
-                        <h3>Economia Garantida</h3>
-                        <p>Redução de até 95% na conta de energia elétrica. Retorno de investimento garantido.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <h3>Energia Limpa</h3>
-                        <p>Fonte de energia sustentável. Contribua para um planeta melhor.</p>
+                        <h3>100% Renovável</h3>
+                        <p>Energia limpa e sustentável que não prejudica o meio ambiente. Contribua para um planeta melhor.</p>
                     </div>
 
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Baixa Manutenção</h3>
-                        <p>Manutenção mínima e custo reduzido. Sistema robusto e durável.</p>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>100% de Aproveitamento</h3>
-                        <p>Toda energia gerada é aproveitada. Sem desperdícios.</p>
+                        <h3>Economia Garantida</h3>
+                        <p>Reduza sua conta de luz em até 95%. Investimento que se paga em poucos anos.</p>
                     </div>
 
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Garantia de 10 Anos</h3>
-                        <p>Proteção total dos inversores, estruturas e painéis solares.</p>
+                        <h3>Garantia de 25 Anos</h3>
+                        <p>Painéis solares com garantia estendida. Proteção total para seu investimento.</p>
                     </div>
                 </div>
             </div>
@@ -1414,38 +1305,34 @@
 
         <section class="process-section" id="process">
             <div class="container">
-                <h2 class="section-title" style="color: white;">Como Funciona o Processo</h2>
-                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">5 passos simples para sua energia solar</p>
+                <h2 class="section-title" style="color: white;">Como Funciona</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Processo simples e rápido</p>
 
                 <div class="process-grid">
                     <div class="process-step">
                         <div class="process-number">1</div>
-                        <h3>Projeto</h3>
-                        <p>Análise completa e projeto executivo personalizado para sua necessidade.</p>
+                        <h3>Análise</h3>
+                        <p>Avaliamos seu imóvel e consumo de energia</p>
                     </div>
-
                     <div class="process-step">
                         <div class="process-number">2</div>
-                        <h3>Financiamento</h3>
-                        <p>Pagamento flexível em até 70 meses. Sem complicações.</p>
+                        <h3>Orçamento</h3>
+                        <p>Apresentamos a solução ideal para você</p>
                     </div>
-
                     <div class="process-step">
                         <div class="process-number">3</div>
                         <h3>Aprovação</h3>
-                        <p>Cuidamos de todos os trâmites junto à concessionária.</p>
+                        <p>Documentação e aprovação rápida</p>
                     </div>
-
                     <div class="process-step">
                         <div class="process-number">4</div>
                         <h3>Instalação</h3>
-                        <p>Instalação profissional e homologação do sistema.</p>
+                        <p>Instalação profissional em seu imóvel</p>
                     </div>
-
                     <div class="process-step">
                         <div class="process-number">5</div>
-                        <h3>Garantia</h3>
-                        <p>Monitoramento contínuo e suporte técnico permanente.</p>
+                        <h3>Monitoramento</h3>
+                        <p>Acompanhamento em tempo real</p>
                     </div>
                 </div>
             </div>
@@ -1454,17 +1341,17 @@
         <section class="gallery-section" id="gallery">
             <div class="container">
                 <h2 class="section-title">Galeria de Projetos</h2>
-                <p class="section-subtitle">Conheça nossas instalações de sucesso</p>
+                <p class="section-subtitle">Veja alguns de nossos trabalhos</p>
 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="/home/ubuntu/solar_hero.png" alt="Projeto 1">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e938aa1ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Solar 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="/home/ubuntu/solar_installation.png" alt="Projeto 2">
+                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Solar 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="/home/ubuntu/solar_panel_detail.png" alt="Projeto 3">
+                        <img src="https://images.unsplash.com/photo-1497440871519-89386b12bde1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Projeto Solar 3">
                     </div>
                 </div>
             </div>
@@ -1472,37 +1359,35 @@
 
         <section class="video-section" id="videos">
             <div class="container">
-                <h2 class="section-title">Conheça Mais Sobre Energia Solar</h2>
-                <p class="section-subtitle">Vídeos informativos sobre nossos serviços</p>
+                <h2 class="section-title">Vídeos Informativos</h2>
+                <p class="section-subtitle">Aprenda mais sobre energia solar</p>
 
                 <div class="video-grid">
                     <div class="video-card">
-                        <video class="video-player" style="width: 100%; height: 100%; object-fit: cover;" controls preload="metadata">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo HTML5.
-                        </video>
+                        <div class="video-player">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
                         <div class="video-title">Como Funciona a Energia Solar</div>
-                        <div class="video-description">Entenda o processo completo de geração de energia solar.</div>
+                        <div class="video-description">Entenda os princípios básicos da energia solar e como ela pode economizar sua conta de luz.</div>
                     </div>
 
                     <div class="video-card">
-                        <video class="video-player" style="width: 100%; height: 100%; object-fit: cover;" controls preload="metadata">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo HTML5.
-                        </video>
-                        <div class="video-title">Benefícios da Energia Solar</div>
-                        <div class="video-description">Descubra todos os benefícios de investir em energia solar.</div>
+                        <div class="video-player">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Instalação de Painéis Solares</div>
+                        <div class="video-description">Veja o processo completo de instalação de um sistema solar em uma residência.</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="offer-section" id="offer">
+        <section class="offer-section">
             <div class="container">
                 <div class="offer-header">
-                    <div class="offer-tag">☀️ Promoção Especial</div>
-                    <h2>Energia Solar com <span style="color: #8B1538;">Financiamento Flexível</span></h2>
-                    <p>Aproveite nossa promoção especial com financiamento em até 70 meses e comece a economizar desde o primeiro mês.</p>
+                    <span class="offer-tag">OFERTA ESPECIAL</span>
+                    <h2>Solicite Seu Orçamento Agora</h2>
+                    <p>Descubra quanto você pode economizar com energia solar. Análise gratuita e sem compromisso.</p>
                 </div>
 
                 <div class="offer-layout">
@@ -1512,50 +1397,53 @@
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="offer-benefit-info">
-                                <strong>Projeto Personalizado</strong>
-                                <span>Análise completa da sua necessidade energética</span>
+                                <strong>Análise Gratuita</strong>
+                                <span>Avaliação completa sem custo</span>
                             </div>
                         </div>
+
                         <div class="offer-benefit-item">
                             <div class="offer-benefit-icon">
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="offer-benefit-info">
-                                <strong>Financiamento até 70 meses</strong>
-                                <span>Parcelamento totalmente flexível</span>
+                                <strong>Sem Compromisso</strong>
+                                <span>Você decide após receber a proposta</span>
                             </div>
                         </div>
+
                         <div class="offer-benefit-item">
                             <div class="offer-benefit-icon">
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="offer-benefit-info">
-                                <strong>Instalação Profissional</strong>
-                                <span>Equipe especializada em obras de energia solar</span>
+                                <strong>Resposta Rápida</strong>
+                                <span>Orçamento em até 48 horas</span>
                             </div>
                         </div>
+
                         <div class="offer-benefit-item">
                             <div class="offer-benefit-icon">
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="offer-benefit-info">
-                                <strong>Garantia de 10 Anos</strong>
-                                <span>Proteção completa de todos os componentes</span>
+                                <strong>Suporte Total</strong>
+                                <span>Acompanhamento do início ao fim</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="offer-cta-box">
-                        <h3>Solicite Seu Orçamento Agora</h3>
-                        <p>Descubra quanto você pode economizar com energia solar. Nossa equipe analisará sua situação e apresentará a melhor solução.</p>
+                        <h3>Redução de até 95% na sua conta de luz</h3>
+                        <p>Transforme seu imóvel em uma usina de energia limpa. Investimento que se paga em poucos anos.</p>
 
                         <div class="offer-price-block">
-                            <div class="offer-price-label">Comece a Economizar</div>
+                            <div class="offer-price-label">Economia Anual Média</div>
                             <div class="offer-price-value">Até 95%</div>
                             <div class="offer-price-desc">de redução na conta de energia</div>
                         </div>
 
-                        <button class="btn-offer" onclick="addToCartAndGo()">
+                        <button class="btn-offer" onclick="goToQuoteForm()">
                             <i class="fas fa-calculator"></i> SOLICITAR ORÇAMENTO GRATUITO
                         </button>
 
@@ -1568,114 +1456,53 @@
             </div>
         </section>
 
-        <section class="specs-section" id="specs">
-            <div class="container">
-                <h2 class="section-title">Especificações Técnicas</h2>
-                <p class="section-subtitle">Conheça os detalhes do nosso sistema solar</p>
-
-                <div class="specs-grid">
-                    <div class="specs-image">
-                        <img src="/home/ubuntu/solar_panel_detail.png" alt="Painel Solar">
-                    </div>
-
-                    <div class="specs-content">
-                        <h3>Sistema Completo de Energia Solar</h3>
-                        <ul class="specs-list">
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Painéis Solares de Alta Eficiência</strong>
-                                    <span>Tecnologia monocristalina com até 22% de eficiência</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Inversores de Qualidade</strong>
-                                    <span>Conversão eficiente de energia DC para AC</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Estrutura de Fixação Robusta</strong>
-                                    <span>Alumínio anodizado resistente a intempéries</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Sistema de Monitoramento</strong>
-                                    <span>Acompanhamento em tempo real da geração</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Proteção e Segurança</strong>
-                                    <span>Disjuntores e proteções conforme normas técnicas</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Instalação Profissional</strong>
-                                    <span>Equipe certificada e experiente</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Documentação Completa</strong>
-                                    <span>Projetos, ART e certificados de conformidade</span>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <strong>Suporte Técnico Permanente</strong>
-                                    <span>Assistência técnica durante toda a garantia</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="reviews-section" id="reviews">
             <div class="container">
                 <h2 class="section-title">Avaliações de Clientes</h2>
-                <p class="section-subtitle">Veja o que nossos clientes acham da Conecta</p>
+                <p class="section-subtitle">Veja o que nossos clientes dizem</p>
 
                 <div class="rating-summary">
                     <div class="rating-box">
                         <div class="big-rating">4.9</div>
                         <div class="stars-display">★★★★★</div>
-                        <div class="rating-text">Baseado em 847 avaliações</div>
+                        <div class="rating-text">Baseado em 250+ avaliações</div>
                     </div>
 
                     <div class="rating-bars">
                         <div class="rating-bar">
                             <div class="rating-bar-label">5 ★</div>
                             <div class="rating-bar-fill">
-                                <div class="rating-bar-progress" style="width: 82%;"></div>
+                                <div class="rating-bar-progress" style="width: 85%;"></div>
                             </div>
-                            <div class="rating-bar-count">694</div>
+                            <div class="rating-bar-count">212</div>
                         </div>
                         <div class="rating-bar">
                             <div class="rating-bar-label">4 ★</div>
                             <div class="rating-bar-fill">
-                                <div class="rating-bar-progress" style="width: 12%;"></div>
+                                <div class="rating-bar-progress" style="width: 10%;"></div>
                             </div>
-                            <div class="rating-bar-count">102</div>
+                            <div class="rating-bar-count">25</div>
                         </div>
                         <div class="rating-bar">
                             <div class="rating-bar-label">3 ★</div>
                             <div class="rating-bar-fill">
-                                <div class="rating-bar-progress" style="width: 6%;"></div>
+                                <div class="rating-bar-progress" style="width: 3%;"></div>
                             </div>
-                            <div class="rating-bar-count">51</div>
+                            <div class="rating-bar-count">8</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-label">2 ★</div>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%;"></div>
+                            </div>
+                            <div class="rating-bar-count">3</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-label">1 ★</div>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%;"></div>
+                            </div>
+                            <div class="rating-bar-count">2</div>
                         </div>
                     </div>
                 </div>
@@ -1683,41 +1510,41 @@
                 <div class="reviews-grid">
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="review-avatar">CF</div>
+                            <div class="review-avatar">MC</div>
                             <div>
-                                <div class="review-name">Carlos Ferreira</div>
-                                <div class="review-date">Compra verificada - 3 meses atrás</div>
+                                <div class="review-name">Maria Cardoso</div>
+                                <div class="review-date">Há 2 meses</div>
                             </div>
                         </div>
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-title">Excelente investimento! Economia garantida</div>
-                        <div class="review-text">A Conecta foi profissional do início ao fim. Minha conta de luz caiu 92%. Recomendo muito!</div>
+                        <div class="review-title">Excelente Serviço!</div>
+                        <div class="review-text">A Conecta oferece um serviço completo. Desde o orçamento até a instalação, tudo foi perfeito. Já estou economizando muito na conta de luz!</div>
                     </div>
 
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="review-avatar">MB</div>
+                            <div class="review-avatar">JS</div>
                             <div>
-                                <div class="review-name">Mariana Brás</div>
-                                <div class="review-date">Compra verificada - 2 meses atrás</div>
+                                <div class="review-name">João Silva</div>
+                                <div class="review-date">Há 1 mês</div>
                             </div>
                         </div>
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-title">Melhor decisão que tomei para minha casa</div>
-                        <div class="review-text">Equipe atenciosa, projeto bem feito e instalação perfeita. Estou muito satisfeito com o resultado.</div>
+                        <div class="review-title">Recomendo!</div>
+                        <div class="review-text">Profissionais muito atenciosos e competentes. O sistema está funcionando perfeitamente e minha conta de energia caiu significativamente.</div>
                     </div>
 
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="review-avatar">RP</div>
+                            <div class="review-avatar">AP</div>
                             <div>
-                                <div class="review-name">Roberto Pereira</div>
-                                <div class="review-date">Compra verificada - 1 mês atrás</div>
+                                <div class="review-name">Ana Paula</div>
+                                <div class="review-date">Há 3 semanas</div>
                             </div>
                         </div>
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-title">Profissionalismo e qualidade garantidos</div>
-                        <div class="review-text">A Conecta oferece um serviço completo. Desde o orçamento até a instalação, tudo foi perfeito.</div>
+                        <div class="review-title">Ótimo Investimento</div>
+                        <div class="review-text">Melhor decisão que tomei para minha casa. A equipe foi muito prestativa e o sistema está funcionando melhor do que esperava.</div>
                     </div>
                 </div>
             </div>
@@ -1725,32 +1552,32 @@
 
         <section class="trust-section" id="trust">
             <div class="container">
-                <h2 class="section-title">Compre com Confiança</h2>
-                <p class="section-subtitle">Segurança, qualidade e transparência em cada projeto</p>
+                <h2 class="section-title">Por que Confiar na Conecta?</h2>
+                <p class="section-subtitle">Qualidade, segurança e confiabilidade</p>
 
                 <div class="trust-grid">
                     <div class="trust-card">
                         <div class="trust-icon">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-certificate"></i>
                         </div>
-                        <h3>Garantia de 10 Anos</h3>
-                        <p>Cobertura completa dos painéis, inversores e estruturas. Assistência técnica autorizada.</p>
+                        <h3>Certificada</h3>
+                        <p>Empresa certificada e registrada nos órgãos competentes. Garantia de qualidade e conformidade.</p>
                     </div>
 
                     <div class="trust-card">
                         <div class="trust-icon">
-                            <i class="fas fa-truck"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3>Instalação Profissional</h3>
-                        <p>Equipe certificada e experiente. Projeto personalizado e execução impecável.</p>
+                        <h3>Experiência</h3>
+                        <p>Mais de 10 anos no mercado de energia solar. Milhares de clientes satisfeitos em todo o Brasil.</p>
                     </div>
 
                     <div class="trust-card">
                         <div class="trust-icon">
-                            <i class="fas fa-lock"></i>
+                            <i class="fas fa-headset"></i>
                         </div>
-                        <h3>Segurança Total</h3>
-                        <p>Projetos conforme normas técnicas. Documentação completa e certificados de conformidade.</p>
+                        <h3>Suporte 24/7</h3>
+                        <p>Atendimento dedicado sempre disponível para esclarecer dúvidas e resolver problemas.</p>
                     </div>
                 </div>
             </div>
@@ -1762,7 +1589,7 @@
                     <h2>Pronto para Economizar com Energia Solar?</h2>
                     <p>Solicite seu orçamento gratuito agora mesmo. Nossa equipe analisará sua situação e apresentará a melhor solução.</p>
                     <div class="cta-buttons">
-                        <button class="btn-cta-primary" onclick="addToCartAndGo()">
+                        <button class="btn-cta-primary" onclick="goToQuoteForm()">
                             <i class="fas fa-calculator"></i> SOLICITAR ORÇAMENTO
                         </button>
                     </div>
@@ -1771,170 +1598,59 @@
         </section>
 
         <footer class="footer">
-            <div class="container">
-                <div style="margin-bottom: 16px;">
-                    <p>&copy; 2026 Conecta Energia Renovável. Todos os direitos reservados.</p>
-                    <p>Rua Voluntários da Pátria 1125, Vila Carvalho, Sorocaba/SP</p>
-                    <p>Telefone: (11) 3000-0000 | E-mail: contato@conectaenergia.com.br</p>
-                </div>
-            </div>
+            <p>&copy; 2024 Conecta Energia Renovável. Todos os direitos reservados.</p>
         </footer>
     </div>
 
-    <div class="page" id="cart-page">
-        <div class="container cart-page">
+    <div class="page" id="quote-form-page">
+        <div class="container quote-form-page">
             <div class="cart-header">
                 <button class="back-btn" onclick="goToLanding()">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <h2>Seu Orçamento</h2>
-            </div>
-
-            <div class="cart-layout">
-                <div class="cart-items" id="cart-items">
-                    <div class="empty-cart">
-                        <div class="empty-cart-icon">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <p>Nenhum orçamento solicitado ainda</p>
-                    </div>
-                </div>
-
-                <div class="cart-summary">
-                    <div class="summary-title">RESUMO DO ORÇAMENTO</div>
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <span id="summary-subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Consultoria</span>
-                        <span id="summary-shipping">Gratuita</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Total</span>
-                        <span class="value" id="summary-total">R$ 0,00</span>
-                    </div>
-                    <button class="checkout-btn" onclick="goToCheckout()">CONTINUAR</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="page" id="checkout-page">
-        <div class="container checkout-page">
-            <div class="cart-header">
-                <button class="back-btn" onclick="goToCart()">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <h2>Dados para Orçamento</h2>
+                <h2>Solicitar Orçamento</h2>
             </div>
 
             <div class="checkout-layout">
                 <div>
                     <div class="checkout-section">
-                        <div class="section-title-checkout">Dados Pessoais</div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Nome *</label>
-                                <input type="text" id="first-name" placeholder="Seu nome" value="João">
-                            </div>
-                            <div class="form-group">
-                                <label>Sobrenome *</label>
-                                <input type="text" id="last-name" placeholder="Seu sobrenome" value="Silva">
-                            </div>
+                        <div class="section-title-checkout">Dados para Contato</div>
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" id="quote-name" placeholder="Seu nome completo" required>
                         </div>
                         <div class="form-group">
-                            <label>CPF/CNPJ *</label>
-                            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" value="123.456.789-00">
+                            <label>Celular *</label>
+                            <input type="tel" id="quote-phone" placeholder="(11) 99999-9999" required>
                         </div>
                         <div class="form-group">
                             <label>E-mail *</label>
-                            <input type="email" id="email" placeholder="seu@email.com" value="joao@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Telefone *</label>
-                            <input type="text" id="phone" placeholder="(11) 99999-9999" maxlength="15" value="(11) 98765-4321">
-                        </div>
-                    </div>
-
-                    <div class="checkout-section">
-                        <div class="section-title-checkout">Endereço da Propriedade</div>
-                        <div class="form-group">
-                            <label>CEP *</label>
-                            <input type="text" id="address-cep" placeholder="00000-000" maxlength="9" value="01310-100">
-                        </div>
-                        <div class="form-group">
-                            <label>Rua *</label>
-                            <input type="text" id="address-street" placeholder="Rua" value="Avenida Paulista">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Número *</label>
-                                <input type="text" id="address-number" placeholder="Número" value="1000">
-                            </div>
-                            <div class="form-group">
-                                <label>Complemento</label>
-                                <input type="text" id="address-complement" placeholder="Apto, sala, etc" value="Apto 1500">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Cidade *</label>
-                                <input type="text" id="address-city" placeholder="Cidade" value="São Paulo">
-                            </div>
-                            <div class="form-group">
-                                <label>Estado *</label>
-                                <select id="address-state">
-                                    <option value="">Selecione</option>
-                                    <option value="SP" selected>SP</option>
-                                    <option value="RJ">RJ</option>
-                                    <option value="MG">MG</option>
-                                    <option value="BA">BA</option>
-                                    <option value="RS">RS</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkout-section">
-                        <div class="section-title-checkout">Informações do Imóvel</div>
-                        <div class="form-group">
-                            <label>Tipo de Imóvel *</label>
-                            <select id="property-type">
-                                <option value="">Selecione</option>
-                                <option value="residencia" selected>Residência</option>
-                                <option value="empresa">Empresa</option>
-                                <option value="comercio">Comércio</option>
-                                <option value="industria">Indústria</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Consumo Mensal de Energia (kWh) *</label>
-                            <input type="number" id="energy-consumption" placeholder="Ex: 500" value="500">
-                        </div>
-                        <div class="form-group">
-                            <label>Observações</label>
-                            <textarea id="observations" placeholder="Deixe suas observações" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; min-height: 100px;"></textarea>
+                            <input type="email" id="quote-email" placeholder="seu@email.com" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="checkout-summary">
-                    <div class="summary-title">RESUMO DO ORÇAMENTO</div>
-                    <div id="checkout-items"></div>
-                    <div class="summary-item">
-                        <span>Subtotal</span>
-                        <span id="checkout-subtotal">R$ 0,00</span>
+                    <div class="summary-title">INFORMAÇÕES DE CONTATO</div>
+                    <div style="padding: 20px; background: #f9f9f9; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="margin-bottom: 16px;">
+                            <strong style="color: #8B1538; display: block; margin-bottom: 4px;"><i class="fas fa-phone" style="color: #FFC107; margin-right: 8px;"></i>Telefone</strong>
+                            <span style="color: #666;">(11) 3000-0000</span>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong style="color: #8B1538; display: block; margin-bottom: 4px;"><i class="fas fa-envelope" style="color: #FFC107; margin-right: 8px;"></i>E-mail</strong>
+                            <span style="color: #666;">contato@conecta.com.br</span>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <strong style="color: #8B1538; display: block; margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: #FFC107; margin-right: 8px;"></i>Endereço</strong>
+                            <span style="color: #666;">Avenida Paulista, 1000<br>São Paulo, SP - 01310-100</span>
+                        </div>
+                        <div>
+                            <strong style="color: #8B1538; display: block; margin-bottom: 4px;"><i class="fas fa-clock" style="color: #FFC107; margin-right: 8px;"></i>Horário de Atendimento</strong>
+                            <span style="color: #666;">Segunda a Sexta: 9h - 18h<br>Sábado: 9h - 13h</span>
+                        </div>
                     </div>
-                    <div class="summary-item">
-                        <span>Consultoria</span>
-                        <span id="checkout-shipping">Gratuita</span>
-                    </div>
-                    <div class="summary-item total">
-                        <span>Total</span>
-                        <span class="value" id="checkout-total">R$ 0,00</span>
-                    </div>
-                    <button class="finish-btn" onclick="finishPurchase()">ENVIAR SOLICITAÇÃO</button>
+                    <button class="finish-btn" onclick="submitQuoteForm()">ENVIAR SOLICITAÇÃO</button>
                 </div>
             </div>
         </div>
@@ -1980,16 +1696,6 @@
     </div>
 
     <script>
-        const service = {
-            id: 1,
-            name: "Orçamento de Sistema Solar",
-            price: 0,
-            originalPrice: 0,
-            image: "https://images.unsplash.com/photo-1509391366360-2e938aa1ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        };
-
-        let cart = [];
-
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -2002,124 +1708,22 @@
             showPage('landing-page');
         }
 
-        function goToCart() {
-            showPage('cart-page');
-            renderCart();
+        function goToQuoteForm() {
+            showPage('quote-form-page');
         }
 
-        function goToCheckout() {
-            if (cart.length === 0) {
-                alert('Adicione um orçamento ao carrinho primeiro!');
+        function submitQuoteForm() {
+            const name = document.getElementById('quote-name').value;
+            const phone = document.getElementById('quote-phone').value;
+            const email = document.getElementById('quote-email').value;
+
+            if (!name || !phone || !email) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
                 return;
             }
-            showPage('checkout-page');
-            renderCheckout();
-        }
-
-        function addToCartAndGo() {
-            const existing = cart.find(item => item.id === service.id);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ ...service, quantity: 1 });
-            }
-            updateCartCount();
-            goToCart();
-        }
-
-        function updateCartCount() {
-            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-            document.getElementById('cart-count').textContent = count;
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cart-items');
-            
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-cart">
-                        <div class="empty-cart-icon">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <p>Nenhum orçamento solicitado ainda</p>
-                    </div>
-                `;
-                updateCartSummary();
-                return;
-            }
-
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="${item.image}" alt="${item.name}">
-                    </div>
-                    <div class="cart-item-details">
-                        <h3>${item.name}</h3>
-                        <div class="cart-item-price">Orçamento Gratuito</div>
-                        <div class="quantity-control">
-                            <button onclick="updateQuantity(${item.id}, -1)">−</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="updateQuantity(${item.id}, 1)">+</button>
-                        </div>
-                        <a class="remove-btn" onclick="removeItem(${item.id})">
-                            <i class="fas fa-trash-can"></i> Remover
-                        </a>
-                    </div>
-                    <div class="cart-item-actions">
-                        <div class="cart-item-total">Gratuito</div>
-                    </div>
-                </div>
-            `).join('');
-
-            updateCartSummary();
-        }
-
-        function updateQuantity(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.quantity += delta;
-                if (item.quantity <= 0) {
-                    removeItem(id);
-                } else {
-                    renderCart();
-                    updateCartCount();
-                }
-            }
-        }
-
-        function removeItem(id) {
-            cart = cart.filter(item => item.id !== id);
-            renderCart();
-            updateCartCount();
-        }
-
-        function updateCartSummary() {
-            document.getElementById('summary-subtotal').textContent = 'Gratuito';
-            document.getElementById('summary-shipping').textContent = 'Gratuita';
-            document.getElementById('summary-total').textContent = 'Gratuito';
-        }
-
-        function renderCheckout() {
-            document.getElementById('checkout-subtotal').textContent = 'Gratuito';
-            document.getElementById('checkout-shipping').textContent = 'Gratuita';
-            document.getElementById('checkout-total').textContent = 'Gratuito';
-
-            const itemsHtml = cart.map(item => `
-                <div class="summary-item" style="border-bottom: 1px solid #f5f5f5; padding-bottom: 12px; margin-bottom: 12px;">
-                    <span>${item.quantity}x ${item.name}</span>
-                    <span>Gratuito</span>
-                </div>
-            `).join('');
-            document.getElementById('checkout-items').innerHTML = itemsHtml;
-        }
-
-        function finishPurchase() {
-            const firstName = document.getElementById('first-name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
 
             document.getElementById('success-order').textContent = '#' + Math.random().toString(36).substr(2, 9).toUpperCase();
-            document.getElementById('success-name').textContent = firstName;
+            document.getElementById('success-name').textContent = name;
             document.getElementById('success-email').textContent = email;
             document.getElementById('success-phone').textContent = phone;
 
@@ -2127,8 +1731,9 @@
         }
 
         function resetStore() {
-            cart = [];
-            updateCartCount();
+            document.getElementById('quote-name').value = '';
+            document.getElementById('quote-phone').value = '';
+            document.getElementById('quote-email').value = '';
             goToLanding();
         }
 
